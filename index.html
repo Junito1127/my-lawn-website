@@ -3,100 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rainao Lawn Moving - Beautiful Lawns, Easy Appointments</title>
+  <title>Rainao Lawn Moving</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; background: #f8fafc; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; }
     .mobile-menu-button span {
       display: block;
-      height: 3px;
-      width: 100%;
+      height: 2px;
+      width: 24px;
       background-color: #22c55e;
       border-radius: 2px;
+      margin: 4px 0;
     }
     @media (max-width: 767px) {
-      .mobile-nav-links {
+      .mobile-nav {
+        display: none;
         flex-direction: column;
-        position: fixed;
-        top: 56px;
+        position: absolute;
+        top: 64px;
         left: 0;
         width: 100vw;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        z-index: 1000;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        padding: 0;
-        border-radius: 0 0 1rem 1rem;
-        transition: max-height 0.3s, opacity 0.3s, padding 0.3s;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        z-index: 100;
+        padding: 1.5rem 0;
       }
-      .mobile-nav-links.active {
-        max-height: 400px;
-        opacity: 1;
-        padding: 1rem 0;
-        overflow-y: auto;
-      }
-      .mobile-nav-links ul {
-        flex-direction: column;
-        width: 100%;
-      }
-      .mobile-nav-links li {
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem 0;
-      }
-      .mobile-nav-links li a {
-        display: block;
-        padding: 0.5rem 1rem;
-      }
+      .mobile-nav.active { display: flex; }
     }
   </style>
 </head>
-<body class="text-gray-800">
+<body class="bg-white text-gray-900">
 
   <!-- Header -->
-  <header class="bg-white shadow-sm py-3 w-full">
-    <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-4">
-      <a href="#" class="text-3xl font-bold text-green-700 m-0 p-0 leading-none">Rainao Lawn Moving</a>
-      <!-- Hamburger menu button for mobile -->
-      <button id="mobile-menu-button" class="mobile-menu-button md:hidden flex flex-col justify-center items-center w-8 h-8 p-0 m-0" aria-label="Open main menu">
+  <header class="w-full border-b border-gray-200 bg-white fixed top-0 left-0 z-50">
+    <div class="max-w-3xl mx-auto flex items-center justify-between px-6 py-4">
+      <span class="text-2xl font-bold tracking-tight text-green-600">Rainao Lawn Moving</span>
+      <button id="mobile-menu-button" class="mobile-menu-button md:hidden flex flex-col justify-center items-center" aria-label="Open main menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav id="main-nav" class="mobile-nav-links flex items-center">
-        <ul class="flex space-x-6 md:flex">
-          <li><a href="#home" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Home</a></li>
-          <li><a href="#services" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Services</a></li>
-          <li><a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Testimonials</a></li>
-          <li><a href="#appointment" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Appointment</a></li>
-          <li><a href="#contact" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Contact</a></li>
-        </ul>
+      <nav class="hidden md:flex space-x-8 text-base font-medium">
+        <a href="#home" class="hover:text-green-600 transition">Home</a>
+        <a href="#services" class="hover:text-green-600 transition">Services</a>
+        <a href="#testimonials" class="hover:text-green-600 transition">Testimonials</a>
+        <a href="#appointment" class="hover:text-green-600 transition">Appointment</a>
+        <a href="#contact" class="hover:text-green-600 transition">Contact</a>
       </nav>
     </div>
+    <nav id="mobile-nav" class="mobile-nav md:hidden">
+      <a href="#home" class="block px-6 py-2 text-base hover:text-green-600 transition">Home</a>
+      <a href="#services" class="block px-6 py-2 text-base hover:text-green-600 transition">Services</a>
+      <a href="#testimonials" class="block px-6 py-2 text-base hover:text-green-600 transition">Testimonials</a>
+      <a href="#appointment" class="block px-6 py-2 text-base hover:text-green-600 transition">Appointment</a>
+      <a href="#contact" class="block px-6 py-2 text-base hover:text-green-600 transition">Contact</a>
+    </nav>
   </header>
 
-  <!-- Example content below (replace with your actual content) -->
-  <section id="home" class="h-32 flex items-center justify-center">Home Section</section>
-  <section id="services" class="h-32 flex items-center justify-center">Services Section</section>
-  <section id="testimonials" class="h-32 flex items-center justify-center">Testimonials Section</section>
-  <section id="appointment" class="h-32 flex items-center justify-center">Appointment Section</section>
-  <section id="contact" class="h-32 flex items-center justify-center">Contact Section</section>
+  <!-- Hero -->
+  <section id="home" class="pt-32 pb-20 flex flex-col items-center text-center bg-white">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tight">Beautiful Lawns, Easy Appointments</h1>
+    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-xl">Rainao Lawn Moving keeps your lawn at its best—affordable, reliable, and always professional in East Orlando.</p>
+    <a href="#appointment" class="inline-block bg-green-600 text-white px-8 py-3 rounded-full font-semibold shadow hover:bg-green-700 transition">Book Now</a>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-10 tracking-tight">Our Specialized Services</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+          <img src="https://placehold.co/300x180/dcfce7/16a34a?text=Lawn+Mowing" alt="Lawn Mowing" class="mb-4 rounded-lg w-full object-cover"/>
+          <h3 class="font-semibold text-green-700 text-lg mb-2">Expert Lawn Mowing</h3>
+          <p class="text-gray-600 text-center">Clean, even cuts every time. Healthy grass, happy yard.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow p-6 flex flex-col items-center">
+          <img src="https://placehold.co/300x180/dcfce7/16a34a?text=Edging" alt="Edging" class="mb-4 rounded-lg w-full object-cover"/>
+          <h3 class="font-semibold text-green-700 text-lg mb-2">Precision Edging</h3>
+          <p class="text-gray-600 text-center">Crisp lines for garden beds, walkways, and driveways.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-10 tracking-tight">What Our Clients Say</h2>
+      <div class="space-y-8">
+        <blockquote class="border-l-4 border-green-600 pl-4 italic text-gray-700">
+          "EJ and the Rainao Lawn Moving team transformed my patchy lawn into a lush green paradise! Their service in East Orlando is top-notch."
+          <div class="mt-2 text-green-700 font-semibold">– Jane Doe</div>
+        </blockquote>
+        <blockquote class="border-l-4 border-green-600 pl-4 italic text-gray-700">
+          "Absolutely fantastic service! My lawn has never looked better. Highly recommend Rainao Lawn Moving."
+          <div class="mt-2 text-green-700 font-semibold">– John Smith</div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment -->
+  <section id="appointment" class="py-20 bg-gray-50">
+    <div class="max-w-lg mx-auto px-6 text-center">
+      <h2 class="text-2xl font-bold mb-6 tracking-tight">Book Your Appointment</h2>
+      <p class="mb-8 text-gray-600">Easy online scheduling for mowing or edging. Click below to reserve your slot.</p>
+      <a href="https://calendly.com/pantojaefrain1127/lawn-moving-appoinment" target="_blank" class="inline-block bg-green-600 text-white px-8 py-3 rounded-full font-semibold shadow hover:bg-green-700 transition">Schedule on Calendly</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-2xl font-bold text-center mb-8 tracking-tight">Contact</h2>
+      <div class="flex flex-col md:flex-row md:space-x-8">
+        <div class="flex-1 mb-8 md:mb-0">
+          <div class="mb-3 text-gray-700"><span class="font-semibold">Owner:</span> EJ Pantoja</div>
+          <div class="mb-3 text-gray-700"><span class="font-semibold">Phone:</span> (787)-618-0170</div>
+          <div class="mb-3 text-gray-700"><span class="font-semibold">Service Area:</span> East Orlando, FL</div>
+          <a href="https://www.instagram.com/your_instagram_handle" target="_blank" class="inline-block text-green-600 hover:text-green-800 mt-2" aria-label="Instagram">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.648 4.979 4.902.095 1.501.107 1.897.107 4.916s-.012 3.415-.107 4.916c-.2 3.253-1.726 4.753-4.979 4.902-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-3.253-.148-4.779-1.648-4.979-4.902-.095-1.501-.107-1.897-.107-4.916s.012-3.415.107-4.916c.2-3.253 1.726-4.753 4.979-4.902 1.265-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+        <form class="flex-1 space-y-4">
+          <input type="text" placeholder="Your Name" class="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none transition" />
+          <textarea placeholder="Your Message" rows="4" class="w-full border border-gray-300 rounded-md px-4 py-3 focus:ring-2 focus:ring-green-500 outline-none transition"></textarea>
+          <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-md font-semibold hover:bg-green-700 transition">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-gray-100 text-center text-gray-500 text-sm">
+    &copy; 2025 Rainao Lawn Moving, EJ Pantoja. All rights reserved.
+  </footer>
 
   <script>
-    // Hamburger menu toggle
+    // Mobile menu toggle
     document.getElementById('mobile-menu-button').addEventListener('click', function() {
-      document.getElementById('main-nav').classList.toggle('active');
+      document.getElementById('mobile-nav').classList.toggle('active');
     });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.getElementById('main-nav').classList.remove('active');
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    // Close menu on link click
+    document.querySelectorAll('#mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-nav').classList.remove('active');
       });
     });
   </script>
