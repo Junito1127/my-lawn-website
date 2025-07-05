@@ -1,156 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rainao Lawn Mowing</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #43a047;
-      --accent: #81c784;
-      --bg: #f7fff9;
-      --white: #fff;
-      --shadow: 0 4px 24px 0 rgba(60, 120, 60, 0.09);
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background: var(--bg);
-      color: #223;
-    }
-    .hero {
-      background: linear-gradient(135deg, #43a047 70%, #81c784 100%);
-      color: var(--white);
-      padding: 2.5rem 1rem 1.5rem 1rem;
-      text-align: center;
-      border-radius: 0 0 2rem 2rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero h1 {
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.3rem;
-      margin: 0 0 0.7rem 0;
-      letter-spacing: 1px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin: 0 0 1.5rem 0;
-      font-weight: 400;
-    }
-    .hero .cta-btn {
-      background: var(--white);
-      color: var(--primary);
-      border: none;
-      border-radius: 2rem;
-      font-size: 1.2rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      padding: 0.9rem 2.2rem;
-      box-shadow: 0 2px 10px 0 rgba(60, 120, 60, 0.13);
-      margin-bottom: 1.5rem;
-      margin-top: 0.5rem;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      outline: none;
-    }
-    .hero .cta-btn:active, .hero .cta-btn:focus {
-      background: #e8f5e9;
-      color: #2e7d32;
-    }
-    .hero-graphic {
-      width: 100%;
-      max-width: 340px;
-      margin: 0 auto 1.2rem auto;
-      display: block;
-    }
-    .container {
-      max-width: 480px;
-      margin: 2rem auto 2rem auto;
-      padding: 0 1rem;
-    }
-    .section {
-      background: var(--white);
-      border-radius: 1.2rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 1.5rem;
-      padding: 1.3rem 1rem 1rem 1rem;
-      text-align: center;
-    }
-    .section h2 {
-      color: var(--primary);
-      margin-top: 0;
-      font-size: 1.3rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    .section p {
-      font-size: 1rem;
-      color: #3e5740;
-      margin: 0.5rem 0 0 0;
-    }
-    /* Calendly embed styling */
-    .calendly-inline-widget {
-      margin: 2.5rem auto 0 auto;
-      border-radius: 1.2rem;
-      box-shadow: var(--shadow);
-      background: var(--white);
-      min-width: 320px;
-      max-width: 480px;
-      height: 600px;
-      border: none;
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.5rem; }
-      .container { padding: 0 0.3rem; }
-      .section h2 { font-size: 1.1rem; }
-      .calendly-inline-widget { height: 520px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainao Lawn Moving - Beautiful Lawns, Easy Appointments</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .hero-background {
+            background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Modern+Lawn+Mower');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #22c55e;
+            margin: 10px auto 0;
+            border-radius: 9999px;
+        }
+        .form-input {
+            @apply w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200;
+        }
+        .btn-primary {
+            @apply bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out shadow-md hover:shadow-lg;
+        }
+        .card {
+            @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1;
+        }
+        .calendly-inline-widget {
+            min-width: 320px;
+            height: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .mobile-menu-button {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: center;
+            gap: 4px;
+            width: 30px;
+            height: 20px;
+        }
+        .mobile-menu-button span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #22c55e;
+            border-radius: 2px;
+        }
+        .mobile-nav-links {
+            display: flex;
+            align-items: center;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+        }
+        @media (max-width: 767px) {
+            .mobile-menu-button {
+                display: flex;
+            }
+            .mobile-nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                z-index: 1000;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding: 0;
+                border-radius: 0 0 1rem 1rem;
+                margin-top: 56px; /* Adjust if your header height changes */
+            }
+            .mobile-nav-links.active {
+                max-height: 400px;
+                opacity: 1;
+                padding: 1rem 0;
+                overflow-y: auto;
+            }
+            .mobile-nav-links ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            .mobile-nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 0;
+            }
+            .mobile-nav-links li a {
+                display: block;
+                padding: 0.5rem 1rem;
+            }
+            header {
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+        }
+    </style>
 </head>
-<body>
-  <div class="hero">
-    <svg class="hero-graphic" viewBox="0 0 340 100">
-      <ellipse cx="170" cy="90" rx="150" ry="15" fill="#a5d6a7"/>
-      <rect x="60" y="60" width="220" height="30" rx="12" fill="#43a047"/>
-      <rect x="170" y="45" width="60" height="22" rx="6" fill="#616161"/>
-      <circle cx="185" cy="74" r="7" fill="#212121"/>
-      <circle cx="215" cy="74" r="7" fill="#212121"/>
-      <rect x="225" y="55" width="14" height="8" rx="3" fill="#fbc02d"/>
-      <rect x="245" y="62" width="8" height="18" rx="4" fill="#8d6e63"/>
-      <rect x="80" y="70" width="10" height="18" rx="5" fill="#388e3c"/>
-      <rect x="100" y="72" width="8" height="14" rx="4" fill="#388e3c"/>
-      <rect x="120" y="68" width="7" height="16" rx="3" fill="#388e3c"/>
-    </svg>
-    <h1>Rainao Lawn Mowing</h1>
-    <p>Fresh Cuts. Clean Edges. <em>Your</em> Lawn, Perfected.</p>
-    <a href="#appointment" class="cta-btn">Book Your Appointment Below</a>
-  </div>
-  <div class="container">
-    <div class="section">
-      <h2>🌱 Lawn Mowing</h2>
-      <p>Consistent, sharp, and eco-friendly mowing for a lush, healthy yard. We use quiet, modern equipment for a perfect finish every time.</p>
-    </div>
-    <div class="section">
-      <h2>✂️ Edging</h2>
-      <p>Clean, crisp edges along sidewalks, driveways, and beds. Your lawn, outlined to perfection.</p>
-    </div>
-    <div class="section">
-      <h2>🧹 Cleanup</h2>
-      <p>We clear away all clippings and debris for a spotless, polished result after every visit.</p>
-    </div>
-    <div class="section" id="about">
-      <h2>About Rainao</h2>
-      <p>
-        Local, family-owned, and obsessed with detail. We treat every yard like our own—on time, every time.
-      </p>
-    </div>
-   <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/lawn-moving-appoinment?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-3">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-3xl font-bold text-green-700">Rainao Lawn Moving</a>
+            <!-- Hamburger menu button for mobile -->
+            <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Open main menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="main-nav" class="mobile-nav-links">
+                <ul class="flex space-x-6 md:flex">
+                    <li><a href="#home" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Home</a></li>
+                    <li><a href="#services" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Services</a></li>
+                    <li><a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Testimonials</a></li>
+                    <li><a href="#appointment" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Appointment</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-background h-screen flex items-center justify-center text-center text-white relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 p-6 rounded-xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">Rainao Lawn Moving: Your Lawn, Our Passion</h1>
+            <p class="text-xl md:text-2xl mb-8 drop-shadow-md">We keep your lawn at its best, at an affordable price.</p>
+            <a href="#appointment" class="btn-primary text-lg inline-block">Schedule Your Service Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Our Specialized Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <!-- Service Card 1: Lawn Mowing -->
+                <div class="card">
+                    <img src="https://placehold.co/400x250/dcfce7/16a34a?text=Lawn+Mowing+Service" alt="Lawn Mowing" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-2">Expert Lawn Mowing</h3>
+                    <p class="text-gray-600">Keep your lawn perfectly manicured with our professional mowing services. We ensure a clean, even cut every time, promoting healthy grass growth.</p>
+                </div>
+                <!-- Service Card 2: Edging -->
+                <div class="card">
+                    <img src="https://placehold.co/400x250/dcfce7/16a34a?text=Lawn+Edging+Service" alt="Lawn Edging" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-2">Precision Edging</h3>
+                    <p class="text-gray-600">Achieve crisp, defined lines around your garden beds, walkways, and driveways with our meticulous edging service, enhancing your property's curb appeal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">What Our East Orlando Clients Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial Card 1 -->
+                <div class="card text-center">
+                    <p class="text-lg italic text-gray-700 mb-4">"EJ and the Rainao Lawn Moving team transformed my patchy lawn into a lush green paradise! Their service in East Orlando is top-notch."</p>
+                    <p class="font-semibold text-green-700">- Jane Doe, East Orlando</p>
+                    <p class="text-sm text-gray-500">Happy Customer</p>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="card text-center">
+                    <p class="text-lg italic text-gray-700 mb-4">"Absolutely fantastic service! My lawn has never looked better. Highly recommend Rainao Lawn Moving for all your East Orlando lawn care needs."</p>
+                    <p class="font-semibold text-green-700">- John Smith, East Orlando</p>
+                    <p class="text-sm text-gray-500">Satisfied Client</p>
+                </div>
+                <!-- Testimonial Card 3 -->
+                <div class="card text-center">
+                    <p class="text-lg italic text-gray-700 mb-4">"Booking an appointment was so easy with Calendly, and the service was superb. My yard is now the envy of the neighborhood in East Orlando!"</p>
+                    <p class="font-semibold text-green-700">- Emily White, East Orlando</p>
+                    <p class="text-sm text-gray-500">Delighted Homeowner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section with Calendly -->
+    <section id="appointment" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Schedule Your Lawn Care Appointment</h2>
+            <p class="text-center text-lg text-gray-700 mb-8">Click below to easily book your mowing or edging service through Calendly.</p>
+            <div class="max-w-3xl mx-auto bg-white p-4 rounded-xl shadow-lg flex justify-center items-center">
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/lawn-moving-appoinment" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 section-title">Get in Touch with Rainao Lawn Moving</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Contact Information</h3>
+                    <p class="text-gray-600 mb-2"><strong class="font-medium">Owner:</strong> EJ Pantoja</p>
+                    <p class="text-gray-600 mb-2"><strong class="font-medium">Phone:</strong> (787)-618-0170</p>
+                    <p class="text-gray-600 mb-2"><strong class="font-medium">Service Area:</strong> East Orlando, FL</p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://www.instagram.com/your_instagram_handle" target="_blank" class="text-green-600 hover:text-green-800 transition duration-200" aria-label="Visit us on Instagram">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.648 4.979 4.902.095 1.501.107 1.897.107 4.916s-.012 3.415-.107 4.916c-.2 3.253-1.726 4.753-4.979 4.902-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-3.253-.148-4.779-1.648-4.979-4.902-.095-1.501-.107-1.897-.107-4.916s.012-3.415.107-4.916c.2-3.253 1.726-4.753 4.979-4.902 1.265-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="contact-name" class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
+                            <input type="text" id="contact-name" name="contact-name" class="form-input" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="contact-message" class="block text-gray-700 text-sm font-bold mb-2">Your Message</label>
+                            <textarea id="contact-message" name="contact-message" rows="5" class="form-input" placeholder="Enter your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2025 Rainao Lawn Moving, EJ Pantoja. All rights reserved.</p>
+            <p class="mt-2 text-sm">Serving East Orlando with passion.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Close mobile menu if open
+                const mobileNav = document.getElementById('main-nav');
+                if (mobileNav.classList.contains('active')) {
+                    mobileNav.classList.remove('active');
+                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mainNav = document.getElementById('main-nav');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
