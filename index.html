@@ -4,96 +4,140 @@
   <meta charset="UTF-8">
   <title>Rainao Lawn Mowing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Fonts for a modern look -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#43a047">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --main: #43a047;
+      --accent: #2e7d32;
+      --bg: #f9fff7;
+      --text: #1b3a1b;
+      --white: #fff;
+      --shadow: 0 4px 24px 0 rgba(60, 120, 60, 0.09);
+    }
+    html, body {
       margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Roboto', Arial, sans-serif;
-      background: #e8f5e9;
-      color: #222;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
     }
     header {
-      background: linear-gradient(90deg, #43a047 60%, #388e3c 100%);
-      color: #fff;
-      padding: 2rem 1rem 1.5rem 1rem;
+      padding: 2rem 1rem 1.2rem 1rem;
+      background: var(--main);
+      color: var(--white);
       text-align: center;
       position: relative;
     }
     header h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.7rem;
+      font-size: 2.2rem;
       margin: 0 0 0.5rem 0;
+      letter-spacing: 1px;
     }
     header p {
-      font-size: 1.25rem;
-      margin: 0 0 1rem 0;
-      font-weight: 500;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 1.5rem;
-      font-weight: 500;
       font-size: 1.1rem;
-      transition: text-decoration 0.2s;
+      margin: 0 0 1.2rem 0;
+      font-weight: 400;
     }
-    nav a:hover {
-      text-decoration: underline;
+    .hero-svg {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto 1.2rem auto;
+      display: block;
     }
-    .container {
-      max-width: 900px;
-      margin: 2.5rem auto;
-      background: #fff;
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 24px 0 rgba(60, 120, 60, 0.13);
-      padding: 2.5rem 1.5rem 2rem 1.5rem;
+    main {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 1.2rem 1rem 4.5rem 1rem;
     }
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-around;
-      margin-bottom: 2.5rem;
-    }
-    .service-card {
-      flex: 1 1 250px;
-      background: #f1f8e9;
-      border-radius: 1rem;
-      padding: 1.5rem 1rem;
-      box-shadow: 0 2px 8px 0 rgba(60, 120, 60, 0.08);
+    .service {
+      background: var(--white);
+      border-radius: 1.1rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.2rem;
+      padding: 1.2rem 1rem;
       text-align: center;
-      margin: 0.5rem;
+      transition: box-shadow 0.2s;
     }
-    .service-card h3 {
-      color: #388e3c;
-      margin-bottom: 0.5rem;
+    .service h2 {
+      color: var(--main);
+      margin: 0 0 0.4rem 0;
+      font-size: 1.3rem;
     }
-    .service-card p {
-      font-size: 1rem;
+    .service p {
       margin: 0;
+      font-size: 1rem;
+      color: #3e5740;
     }
-    .cta {
+    .about {
+      background: #e8f5e9;
+      border-radius: 1.1rem;
+      padding: 1.2rem 1rem;
+      margin-bottom: 1.2rem;
       text-align: center;
-      margin: 2rem 0;
     }
-    .cta button {
-      background: #43a047;
-      color: #fff;
+    .about h2 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+    }
+    .about p {
+      margin: 0;
+      font-size: 1rem;
+    }
+    /* Floating Action Button */
+    .fab {
+      position: fixed;
+      right: 1.2rem;
+      bottom: 4.5rem;
+      background: var(--main);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      box-shadow: var(--shadow);
+      font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 100;
+      transition: background 0.18s;
+    }
+    .fab:active, .fab:hover {
+      background: var(--accent);
+    }
+    /* Sticky Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      border-top: 1px solid #b2dfdb;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 56px;
+      z-index: 99;
+      box-shadow: 0 -2px 12px 0 rgba(60,120,60,0.07);
+    }
+    .bottom-nav a {
+      color: var(--main);
+      text-decoration: none;
       font-size: 1.2rem;
       font-family: 'Montserrat', Arial, sans-serif;
-      border: none;
-      border-radius: 2rem;
-      padding: 0.9rem 2.3rem;
-      cursor: pointer;
-      box-shadow: 0 2px 8px 0 rgba(60, 120, 60, 0.13);
-      transition: background 0.2s;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 0.7rem;
+      border-radius: 0.7rem;
+      transition: background 0.15s;
     }
-    .cta button:hover {
-      background: #388e3c;
+    .bottom-nav a.active, .bottom-nav a:active {
+      background: #c8e6c9;
     }
     /* Calendly Modal */
     #calendly-modal {
@@ -101,17 +145,16 @@
       position: fixed;
       z-index: 1000;
       left: 0; top: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0,0,0,0.55);
       align-items: center;
       justify-content: center;
     }
     #calendly-content {
-      background: #fff;
+      background: var(--white);
       border-radius: 1rem;
-      padding: 0;
-      max-width: 400px;
+      max-width: 380px;
       width: 95vw;
-      box-shadow: 0 6px 32px 0 rgba(60,120,60,0.18);
+      box-shadow: var(--shadow);
       overflow: hidden;
       position: relative;
     }
@@ -120,114 +163,65 @@
       top: 0.5rem; right: 0.9rem;
       background: none;
       border: none;
-      font-size: 1.8rem;
-      color: #43a047;
+      font-size: 1.7rem;
+      color: var(--main);
       cursor: pointer;
       z-index: 10;
     }
-    /* Grass animation */
-    .grass-area {
-      margin: 2.5rem 0 0 0;
-      width: 100%;
-      height: 70px;
-      background: #81c784;
-      border-radius: 0 0 1.5rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 24px 0 rgba(60, 120, 60, 0.07);
-    }
-    .grass-blade {
-      position: absolute;
-      bottom: 0;
-      width: 7px;
-      height: 40px;
-      background: linear-gradient(to top, #388e3c 80%, #a5d6a7 100%);
-      border-radius: 0 0 6px 6px;
-      transition: background 1s;
-    }
-    .grass-blade.cut {
-      background: linear-gradient(to top, #a5d6a7 85%, #c8e6c9 100%);
-      height: 18px;
-      transition: background 0.7s, height 0.7s;
-    }
-    .mower {
-      position: absolute;
-      left: 0;
-      bottom: 30px;
-      width: 50px;
-      height: 30px;
-      background: #616161;
-      border-radius: 12px 12px 10px 10px;
-      box-shadow: 0 2px 8px 0 rgba(60, 60, 60, 0.15);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      z-index: 2;
-      transition: left 0.6s;
-    }
-    .mower::after {
-      content: '';
-      display: block;
-      width: 30px;
-      height: 8px;
-      background: #263238;
-      border-radius: 4px;
-      margin-bottom: 2px;
-    }
-    @media (max-width: 700px) {
-      .container { padding: 1rem 0.4rem; }
-      .services { flex-direction: column; gap: 1.2rem; }
-      .service-card { margin: 0.5rem 0; }
-      header h1 { font-size: 2rem; }
+    @media (max-width: 500px) {
+      header h1 { font-size: 1.45rem; }
+      main { padding-bottom: 5.1rem; }
+      .service h2 { font-size: 1.1rem; }
+      .about h2 { font-size: 1.05rem; }
+      .fab { width: 52px; height: 52px; font-size: 1.7rem; bottom: 4.1rem; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Rainao Lawn Mowing</h1>
-    <p>Fresh Cuts. Clean Edges. <em>Your</em> Lawn, Perfected.</p>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#book">Book Now</a>
-      <a href="#about">About</a>
-    </nav>
+    <p>Lawn Mowing & Edging, Done Right.</p>
+    <svg class="hero-svg" viewBox="0 0 340 100">
+      <ellipse cx="170" cy="90" rx="150" ry="15" fill="#a5d6a7"/>
+      <rect x="60" y="60" width="220" height="30" rx="12" fill="#43a047"/>
+      <rect x="170" y="45" width="60" height="22" rx="6" fill="#616161"/>
+      <circle cx="185" cy="74" r="7" fill="#212121"/>
+      <circle cx="215" cy="74" r="7" fill="#212121"/>
+      <rect x="225" y="55" width="14" height="8" rx="3" fill="#fbc02d"/>
+      <rect x="245" y="62" width="8" height="18" rx="4" fill="#8d6e63"/>
+      <rect x="80" y="70" width="10" height="18" rx="5" fill="#388e3c"/>
+      <rect x="100" y="72" width="8" height="14" rx="4" fill="#388e3c"/>
+      <rect x="120" y="68" width="7" height="16" rx="3" fill="#388e3c"/>
+    </svg>
   </header>
-  <div class="container">
-    <section id="services">
-      <h2 style="text-align:center; color:#43a047; margin-bottom:1.8rem;">Our Services</h2>
-      <div class="services">
-        <div class="service-card">
-          <h3>Lawn Mowing</h3>
-          <p>Professional, even mowing for a healthy, beautiful lawn. We use modern equipment for the perfect cut every time.</p>
-        </div>
-        <div class="service-card">
-          <h3>Edging</h3>
-          <p>Crisp, clean edges along sidewalks, driveways, and flower beds for a polished, manicured look.</p>
-        </div>
-        <div class="service-card">
-          <h3>Clean Up</h3>
-          <p>We remove all clippings and debris, leaving your property spotless after every visit.</p>
-        </div>
-      </div>
-    </section>
-    <div class="cta" id="book">
-      <button onclick="openCalendly()">Book an Appointment</button>
-      <p style="margin-top:0.7rem; color:#757575; font-size:0.98rem;">Fast online booking via Calendly</p>
+  <main>
+    <div class="service" id="services">
+      <h2>🌱 Lawn Mowing</h2>
+      <p>Consistent, sharp, and eco-friendly mowing for a lush, healthy yard. We use quiet, modern equipment for a perfect finish every time.</p>
     </div>
-    <section id="about" style="margin-top:2.5rem;">
-      <h2 style="color:#43a047;">About Rainao</h2>
+    <div class="service">
+      <h2>✂️ Edging</h2>
+      <p>Clean, crisp edges along sidewalks, driveways, and beds. Your lawn, outlined to perfection.</p>
+    </div>
+    <div class="service">
+      <h2>🧹 Cleanup</h2>
+      <p>We clear away all clippings and debris for a spotless, polished result after every visit.</p>
+    </div>
+    <div class="about" id="about">
+      <h2>About Rainao</h2>
       <p>
-        Rainao Lawn Mowing is a local, family-owned business dedicated to making your yard the envy of the neighborhood. We pride ourselves on reliability, attention to detail, and friendly service. Whether you want a one-time cut or regular maintenance, we've got you covered!
+        Local, family-owned, and obsessed with detail. We treat every yard like our own—on time, every time.
       </p>
-    </section>
-    <div class="grass-area" id="grass-area"></div>
-  </div>
-
+    </div>
+  </main>
+ <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/lawn-moving-appoinment?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
   <!-- Calendly Modal -->
   <div id="calendly-modal">
     <div id="calendly-content">
       <button id="calendly-close" title="Close">&times;</button>
-      <!-- Calendly inline widget -->
       <div 
         class="calendly-inline-widget"
         data-url="https://calendly.com/your-calendly-link/lawn-mowing"
@@ -236,7 +230,6 @@
       <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     </div>
   </div>
-
   <script>
     // Calendly modal logic
     function openCalendly() {
@@ -250,54 +243,13 @@
         document.getElementById('calendly-modal').style.display = 'none';
       }
     };
-
-    // Grass animation logic
-    const grassArea = document.getElementById('grass-area');
-    const bladeCount = Math.floor(window.innerWidth / 14);
-    for (let i = 0; i < bladeCount; i++) {
-      const blade = document.createElement('div');
-      blade.className = 'grass-blade';
-      blade.style.left = (i * 14) + 'px';
-      blade.style.height = (30 + Math.random() * 18) + 'px';
-      grassArea.appendChild(blade);
-    }
-    // Add mower
-    const mower = document.createElement('div');
-    mower.className = 'mower';
-    grassArea.appendChild(mower);
-
-    // Animate mower and cut grass
-    let mowerPos = 0;
-    function animateMower() {
-      mowerPos += 14;
-      if (mowerPos > grassArea.offsetWidth) {
-        mowerPos = 0;
-        // Reset grass
-        document.querySelectorAll('.grass-blade').forEach(b => b.classList.remove('cut'));
-      }
-      mower.style.left = mowerPos + 'px';
-      // Cut grass under mower
-      const idx = Math.floor(mowerPos / 14);
-      const blades = document.querySelectorAll('.grass-blade');
-      if (blades[idx]) blades[idx].classList.add('cut');
-      setTimeout(animateMower, 120);
-    }
-    setTimeout(animateMower, 900);
-
-    // Responsive: adjust blades on resize
-    window.addEventListener('resize', () => {
-      while (grassArea.firstChild) grassArea.removeChild(grassArea.firstChild);
-      for (let i = 0; i < Math.floor(window.innerWidth / 14); i++) {
-        const blade = document.createElement('div');
-        blade.className = 'grass-blade';
-        blade.style.left = (i * 14) + 'px';
-        blade.style.height = (30 + Math.random() * 18) + 'px';
-        grassArea.appendChild(blade);
-      }
-      grassArea.appendChild(mower);
-      mowerPos = 0;
+    // Bottom nav active state
+    document.querySelectorAll('.bottom-nav a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.bottom-nav a').forEach(l => l.classList.remove('active'));
+        if(this.hash) this.classList.add('active');
+      });
     });
   </script>
 </body>
 </html>
-
