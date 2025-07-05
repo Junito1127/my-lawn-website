@@ -10,12 +10,11 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Light gray background */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            background-color: #f8fafc;
+            overflow-x: hidden;
         }
         .hero-background {
-            /* Updated to a lawn mower related placeholder image */
-            background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Modern+Lawn+Mower'); /* Placeholder for a lawn mower image */
+            background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Modern+Lawn+Mower');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -25,7 +24,7 @@
             display: block;
             width: 60px;
             height: 4px;
-            background-color: #22c55e; /* Green accent */
+            background-color: #22c55e;
             margin: 10px auto 0;
             border-radius: 9999px;
         }
@@ -38,19 +37,16 @@
         .card {
             @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1;
         }
-        /* Calendly iframe styling for responsiveness */
         .calendly-inline-widget {
-            min-width: 320px; /* Ensures it's not too small on mobile */
-            height: 700px; /* Keep this as Calendly often requires it */
-            max-height: 90vh; /* Limit max height to 90% of viewport height for better mobile fit */
-            overflow-y: auto; /* Allow scrolling within the widget if content exceeds max-height */
-            border-radius: 1rem; /* Rounded corners for the iframe */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Shadow for the iframe */
+            min-width: 320px;
+            height: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-
-        /* Mobile navigation specific styles */
         .mobile-menu-button {
-            display: none; /* Hidden by default, shown on small screens */
+            display: none;
             cursor: pointer;
             flex-direction: column;
             justify-content: center;
@@ -62,45 +58,43 @@
             display: block;
             height: 3px;
             width: 100%;
-            background-color: #22c55e; /* Green color for the dashes */
+            background-color: #22c55e;
             border-radius: 2px;
         }
-
         .mobile-nav-links {
-            display: flex; /* Always flex for desktop */
-            /* Initial state for mobile menu when closed */
-            max-height: 0;
-            overflow: hidden; /* Hide overflow when closed */
-            opacity: 0;
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition */
+            display: flex;
+            align-items: center;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
         }
-
-        @media (max-width: 767px) { /* Styles for screens smaller than md (768px) */
+        @media (max-width: 767px) {
             .mobile-menu-button {
-                display: flex; /* Show hamburger on mobile */
+                display: flex;
             }
             .mobile-nav-links {
-                /* Override desktop display for mobile */
-                display: flex; /* Keep flex for column layout */
                 flex-direction: column;
-                position: absolute;
-                top: 64px; /* Adjust based on header height */
+                position: fixed;
+                top: 0;
                 left: 0;
-                width: 100%;
-                background-color: white;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                width: 100vw;
+                background: white;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
                 z-index: 1000;
-                padding: 0; /* Remove padding from here, apply to active state */
-                border-radius: 0 0 0.5rem 0.5rem;
-                /* Transition properties are already on the base class */
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                padding: 0;
+                border-radius: 0 0 1rem 1rem;
+                margin-top: 56px; /* Adjust if your header height changes */
             }
             .mobile-nav-links.active {
-                max-height: 500px; /* A value large enough to contain all menu items */
+                max-height: 400px;
                 opacity: 1;
-                padding: 1rem 0; /* Apply padding only when active */
-                /* Ensure items are centered horizontally within the expanded menu */
-                align-items: center; /* Added for horizontal centering of list items */
-                overflow-y: auto; /* Allow vertical scrolling when menu is active */
+                padding: 1rem 0;
+                overflow-y: auto;
+            }
+            .mobile-nav-links ul {
+                flex-direction: column;
+                width: 100%;
             }
             .mobile-nav-links li {
                 width: 100%;
@@ -111,10 +105,9 @@
                 display: block;
                 padding: 0.5rem 1rem;
             }
-            /* Adjust header padding for smaller size */
             header {
-                padding-top: 0.75rem; /* Reduced padding */
-                padding-bottom: 0.75rem; /* Reduced padding */
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
             }
         }
     </style>
@@ -122,19 +115,17 @@
 <body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-sm py-3"> <!-- Reduced py-4 to py-3 for smaller header -->
+    <header class="bg-white shadow-sm py-3">
         <div class="container mx-auto flex justify-between items-center px-4">
             <a href="#" class="text-3xl font-bold text-green-700">Rainao Lawn Moving</a>
-
             <!-- Hamburger menu button for mobile -->
-            <button id="mobile-menu-button" class="mobile-menu-button md:hidden">
+            <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Open main menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
             <nav id="main-nav" class="mobile-nav-links">
-                <ul class="flex space-x-6 md:flex"> <!-- flex for desktop, but hidden by default on mobile via CSS -->
+                <ul class="flex space-x-6 md:flex">
                     <li><a href="#home" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Home</a></li>
                     <li><a href="#services" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Services</a></li>
                     <li><a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Testimonials</a></li>
@@ -162,14 +153,12 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 <!-- Service Card 1: Lawn Mowing -->
                 <div class="card">
-                    <!-- Placeholder for a lawn mowing image -->
                     <img src="https://placehold.co/400x250/dcfce7/16a34a?text=Lawn+Mowing+Service" alt="Lawn Mowing" class="rounded-lg mb-4 w-full h-48 object-cover">
                     <h3 class="text-2xl font-semibold text-green-700 mb-2">Expert Lawn Mowing</h3>
                     <p class="text-gray-600">Keep your lawn perfectly manicured with our professional mowing services. We ensure a clean, even cut every time, promoting healthy grass growth.</p>
                 </div>
                 <!-- Service Card 2: Edging -->
                 <div class="card">
-                    <!-- Placeholder for an edging image -->
                     <img src="https://placehold.co/400x250/dcfce7/16a34a?text=Lawn+Edging+Service" alt="Lawn Edging" class="rounded-lg mb-4 w-full h-48 object-cover">
                     <h3 class="text-2xl font-semibold text-green-700 mb-2">Precision Edging</h3>
                     <p class="text-gray-600">Achieve crisp, defined lines around your garden beds, walkways, and driveways with our meticulous edging service, enhancing your property's curb appeal.</p>
@@ -230,7 +219,6 @@
                     <p class="text-gray-600 mb-2"><strong class="font-medium">Phone:</strong> (787)-618-0170</p>
                     <p class="text-gray-600 mb-2"><strong class="font-medium">Service Area:</strong> East Orlando, FL</p>
                     <div class="mt-4 flex space-x-4">
-                        <!-- Instagram Icon Only -->
                         <a href="https://www.instagram.com/your_instagram_handle" target="_blank" class="text-green-600 hover:text-green-800 transition duration-200" aria-label="Visit us on Instagram">
                             <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.648 4.979 4.902.095 1.501.107 1.897.107 4.916s-.012 3.415-.107 4.916c-.2 3.253-1.726 4.753-4.979 4.902-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-3.253-.148-4.779-1.648-4.979-4.902-.095-1.501-.107-1.897-.107-4.916s.012-3.415.107-4.916c.2-3.253 1.726-4.753 4.979-4.902 1.265-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                         </a>
