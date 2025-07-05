@@ -14,7 +14,7 @@
         }
         .hero-background {
             /* Updated to a lawn mower related placeholder image */
-            background-image: url('https://cdn.mos.cms.futurecdn.net/PQjVHayqFTPHEPMARYcAmN-650-80.jpg.webp'); /* Placeholder for a lawn mower image */
+            background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Modern+Lawn+Mower'); /* Placeholder for a lawn mower image */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -40,9 +40,10 @@
         /* Calendly iframe styling for responsiveness */
         .calendly-inline-widget {
             min-width: 320px; /* Ensures it's not too small on mobile */
-            height: 700px; /* Adjust height as needed for the widget content */
+            height: 700px; /* Keep this as Calendly often requires it */
+            max-height: 90vh; /* Limit max height to 90% of viewport height for better mobile fit */
+            overflow-y: auto; /* Allow scrolling within the widget if content exceeds max-height */
             border-radius: 1rem; /* Rounded corners for the iframe */
-            overflow: hidden; /* Hide scrollbars if content overflows */
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Shadow for the iframe */
         }
     </style>
