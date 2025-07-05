@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rainao Lawn Moving - Beautiful Lawns, Easy Appointments</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,7 +13,7 @@
             overflow-x: hidden;
         }
         .hero-background {
-            background-image: url('https://images.unsplash.com/photo-1458245201577-fc8a130b8829?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGF3biUyMG1vd2VyfGVufDB8fDB8fHww');
+            background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Modern+Lawn+Mower');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -45,15 +44,6 @@
             border-radius: 1rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .mobile-menu-button {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: center;
-            gap: 4px;
-            width: 30px;
-            height: 20px;
-        }
         .mobile-menu-button span {
             display: block;
             height: 3px;
@@ -61,14 +51,9 @@
             background-color: #22c55e;
             border-radius: 2px;
         }
-        .mobile-nav-links {
-            display: flex;
-            align-items: center;
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
-        }
         @media (max-width: 767px) {
             .mobile-menu-button {
-                display: flex;
+                display: flex !important;
             }
             .mobile-nav-links {
                 flex-direction: column;
@@ -84,7 +69,7 @@
                 overflow: hidden;
                 padding: 0;
                 border-radius: 0 0 1rem 1rem;
-                margin-top: 56px; /* Adjust if your header height changes */
+                margin-top: 56px;
             }
             .mobile-nav-links.active {
                 max-height: 400px;
@@ -115,11 +100,11 @@
 <body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-white shadow-sm py-3">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <a href="#" class="text-3xl font-bold text-green-700">Rainao Lawn Moving</a>
+    <header class="bg-white shadow-sm py-3 w-full">
+        <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-4">
+            <a href="#" class="text-3xl font-bold text-green-700 m-0 p-0 leading-none">Rainao Lawn Moving</a>
             <!-- Hamburger menu button for mobile -->
-            <button id="mobile-menu-button" class="mobile-menu-button md:hidden" aria-label="Open main menu">
+            <button id="mobile-menu-button" class="mobile-menu-button md:hidden flex flex-col justify-center items-center w-8 h-8 p-0 m-0" aria-label="Open main menu" style="display:none;">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -136,126 +121,25 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-background h-screen flex items-center justify-center text-center text-white relative">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 p-6 rounded-xl">
-            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">Rainao Lawn Moving: Your Lawn, Our Passion</h1>
-            <p class="text-xl md:text-2xl mb-8 drop-shadow-md">We keep your lawn at its best, at an affordable price.</p>
-            <a href="#appointment" class="btn-primary text-lg inline-block">Schedule Your Service Today</a>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title">Our Specialized Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                <!-- Service Card 1: Lawn Mowing -->
-                <div class="card">
-                    <img src="https://placehold.co/400x250/dcfce7/16a34a?text=Lawn+Mowing+Service" alt="Lawn Mowing" class="rounded-lg mb-4 w-full h-48 object-cover">
-                    <h3 class="text-2xl font-semibold text-green-700 mb-2">Expert Lawn Mowing</h3>
-                    <p class="text-gray-600">Keep your lawn perfectly manicured with our professional mowing services. We ensure a clean, even cut every time, promoting healthy grass growth.</p>
-                </div>
-                <!-- Service Card 2: Edging -->
-                <div class="card">
-                    <img src="https://placehold.co/400x250/dcfce7/16a34a?text=Lawn+Edging+Service" alt="Lawn Edging" class="rounded-lg mb-4 w-full h-48 object-cover">
-                    <h3 class="text-2xl font-semibold text-green-700 mb-2">Precision Edging</h3>
-                    <p class="text-gray-600">Achieve crisp, defined lines around your garden beds, walkways, and driveways with our meticulous edging service, enhancing your property's curb appeal.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title">What Our East Orlando Clients Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial Card 1 -->
-                <div class="card text-center">
-                    <p class="text-lg italic text-gray-700 mb-4">"EJ and the Rainao Lawn Moving team transformed my patchy lawn into a lush green paradise! Their service in East Orlando is top-notch."</p>
-                    <p class="font-semibold text-green-700">- Jane Doe, East Orlando</p>
-                    <p class="text-sm text-gray-500">Happy Customer</p>
-                </div>
-                <!-- Testimonial Card 2 -->
-                <div class="card text-center">
-                    <p class="text-lg italic text-gray-700 mb-4">"Absolutely fantastic service! My lawn has never looked better. Highly recommend Rainao Lawn Moving for all your East Orlando lawn care needs."</p>
-                    <p class="font-semibold text-green-700">- John Smith, East Orlando</p>
-                    <p class="text-sm text-gray-500">Satisfied Client</p>
-                </div>
-                <!-- Testimonial Card 3 -->
-                <div class="card text-center">
-                    <p class="text-lg italic text-gray-700 mb-4">"Booking an appointment was so easy with Calendly, and the service was superb. My yard is now the envy of the neighborhood in East Orlando!"</p>
-                    <p class="font-semibold text-green-700">- Emily White, East Orlando</p>
-                    <p class="text-sm text-gray-500">Delighted Homeowner</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Appointment Section with Calendly -->
-    <section id="appointment" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title">Schedule Your Lawn Care Appointment</h2>
-            <p class="text-center text-lg text-gray-700 mb-8">Click below to easily book your mowing or edging service through Calendly.</p>
-            <div class="max-w-3xl mx-auto bg-white p-4 rounded-xl shadow-lg flex justify-center items-center">
-                <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/lawn-moving-appoinment" style="min-width:320px;height:700px;"></div>
-                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-                <!-- Calendly inline widget end -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 section-title">Get in Touch with Rainao Lawn Moving</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Contact Information</h3>
-                    <p class="text-gray-600 mb-2"><strong class="font-medium">Owner:</strong> EJ Pantoja</p>
-                    <p class="text-gray-600 mb-2"><strong class="font-medium">Phone:</strong> (787)-618-0170</p>
-                    <p class="text-gray-600 mb-2"><strong class="font-medium">Service Area:</strong> East Orlando, FL</p>
-                    <div class="mt-4 flex space-x-4">
-                        <a href="https://www.instagram.com/your_instagram_handle" target="_blank" class="text-green-600 hover:text-green-800 transition duration-200" aria-label="Visit us on Instagram">
-                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.648 4.979 4.902.095 1.501.107 1.897.107 4.916s-.012 3.415-.107 4.916c-.2 3.253-1.726 4.753-4.979 4.902-1.266.058-1.646.07-4.85.07s-3.585-.012-4.85-.07c-3.253-.148-4.779-1.648-4.979-4.902-.095-1.501-.107-1.897-.107-4.916s.012-3.415.107-4.916c.2-3.253 1.726-4.753 4.979-4.902 1.265-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.073 4.948.073s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-2xl font-semibold text-green-700 mb-4">Send Us a Message</h3>
-                    <form class="space-y-4">
-                        <div>
-                            <label for="contact-name" class="block text-gray-700 text-sm font-bold mb-2">Your Name</label>
-                            <input type="text" id="contact-name" name="contact-name" class="form-input" placeholder="Your Name">
-                        </div>
-                        <div>
-                            <label for="contact-message" class="block text-gray-700 text-sm font-bold mb-2">Your Message</label>
-                            <textarea id="contact-message" name="contact-message" rows="5" class="form-input" placeholder="Enter your message here..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto text-center px-4">
-            <p>&copy; 2025 Rainao Lawn Moving, EJ Pantoja. All rights reserved.</p>
-            <p class="mt-2 text-sm">Serving East Orlando with passion.</p>
-        </div>
-    </footer>
+    <!-- ... rest of your page ... -->
 
     <script>
+        // Show hamburger on mobile
+        function handleResize() {
+            const btn = document.getElementById('mobile-menu-button');
+            if(window.innerWidth < 768) {
+                btn.style.display = 'flex';
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('DOMContentLoaded', handleResize);
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                // Close mobile menu if open
                 const mobileNav = document.getElementById('main-nav');
                 if (mobileNav.classList.contains('active')) {
                     mobileNav.classList.remove('active');
@@ -269,7 +153,6 @@
         // Mobile menu toggle functionality
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mainNav = document.getElementById('main-nav');
-
         mobileMenuButton.addEventListener('click', () => {
             mainNav.classList.toggle('active');
         });
