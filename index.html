@@ -4,184 +4,116 @@
   <meta charset="UTF-8">
   <title>Rainao Lawn Mowing</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#43a047">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --main: #43a047;
-      --accent: #2e7d32;
-      --bg: #f9fff7;
-      --text: #1b3a1b;
+      --primary: #43a047;
+      --accent: #81c784;
+      --bg: #f7fff9;
       --white: #fff;
       --shadow: 0 4px 24px 0 rgba(60, 120, 60, 0.09);
     }
-    html, body {
+    body {
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--text);
       font-family: 'Roboto', Arial, sans-serif;
-      min-height: 100vh;
-      width: 100vw;
-      overflow-x: hidden;
+      background: var(--bg);
+      color: #223;
     }
-    header {
-      padding: 2rem 1rem 1.2rem 1rem;
-      background: var(--main);
+    .hero {
+      background: linear-gradient(135deg, #43a047 70%, #81c784 100%);
       color: var(--white);
+      padding: 2.5rem 1rem 1.5rem 1rem;
       text-align: center;
+      border-radius: 0 0 2rem 2rem;
+      box-shadow: var(--shadow);
       position: relative;
+      overflow: hidden;
     }
-    header h1 {
+    .hero h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2.2rem;
-      margin: 0 0 0.5rem 0;
+      font-size: 2.3rem;
+      margin: 0 0 0.7rem 0;
       letter-spacing: 1px;
     }
-    header p {
-      font-size: 1.1rem;
-      margin: 0 0 1.2rem 0;
+    .hero p {
+      font-size: 1.2rem;
+      margin: 0 0 1.5rem 0;
       font-weight: 400;
     }
-    .hero-svg {
+    .hero .cta-btn {
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      border-radius: 2rem;
+      font-size: 1.2rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      padding: 0.9rem 2.2rem;
+      box-shadow: 0 2px 10px 0 rgba(60, 120, 60, 0.13);
+      margin-bottom: 1.5rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+    }
+    .hero .cta-btn:active, .hero .cta-btn:focus {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .hero-graphic {
       width: 100%;
       max-width: 340px;
       margin: 0 auto 1.2rem auto;
       display: block;
     }
-    main {
+    .container {
       max-width: 480px;
-      margin: 0 auto;
-      padding: 1.2rem 1rem 4.5rem 1rem;
+      margin: 2rem auto 2rem auto;
+      padding: 0 1rem;
     }
-    .service {
+    .section {
       background: var(--white);
-      border-radius: 1.1rem;
+      border-radius: 1.2rem;
       box-shadow: var(--shadow);
-      margin-bottom: 1.2rem;
-      padding: 1.2rem 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1.3rem 1rem 1rem 1rem;
       text-align: center;
-      transition: box-shadow 0.2s;
     }
-    .service h2 {
-      color: var(--main);
-      margin: 0 0 0.4rem 0;
+    .section h2 {
+      color: var(--primary);
+      margin-top: 0;
       font-size: 1.3rem;
+      font-family: 'Montserrat', Arial, sans-serif;
     }
-    .service p {
-      margin: 0;
+    .section p {
       font-size: 1rem;
       color: #3e5740;
+      margin: 0.5rem 0 0 0;
     }
-    .about {
-      background: #e8f5e9;
-      border-radius: 1.1rem;
-      padding: 1.2rem 1rem;
-      margin-bottom: 1.2rem;
-      text-align: center;
-    }
-    .about h2 {
-      color: var(--accent);
-      font-size: 1.2rem;
-      margin: 0 0 0.5rem 0;
-    }
-    .about p {
-      margin: 0;
-      font-size: 1rem;
-    }
-    /* Floating Action Button */
-    .fab {
-      position: fixed;
-      right: 1.2rem;
-      bottom: 4.5rem;
-      background: var(--main);
-      color: var(--white);
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
+    /* Calendly embed styling */
+    .calendly-inline-widget {
+      margin: 2.5rem auto 0 auto;
+      border-radius: 1.2rem;
       box-shadow: var(--shadow);
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 100;
-      transition: background 0.18s;
-    }
-    .fab:active, .fab:hover {
-      background: var(--accent);
-    }
-    /* Sticky Bottom Nav */
-    .bottom-nav {
-      position: fixed;
-      left: 0; right: 0; bottom: 0;
       background: var(--white);
-      border-top: 1px solid #b2dfdb;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      height: 56px;
-      z-index: 99;
-      box-shadow: 0 -2px 12px 0 rgba(60,120,60,0.07);
-    }
-    .bottom-nav a {
-      color: var(--main);
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 0.5rem 0.7rem;
-      border-radius: 0.7rem;
-      transition: background 0.15s;
-    }
-    .bottom-nav a.active, .bottom-nav a:active {
-      background: #c8e6c9;
-    }
-    /* Calendly Modal */
-    #calendly-modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0; width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.55);
-      align-items: center;
-      justify-content: center;
-    }
-    #calendly-content {
-      background: var(--white);
-      border-radius: 1rem;
-      max-width: 380px;
-      width: 95vw;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      position: relative;
-    }
-    #calendly-close {
-      position: absolute;
-      top: 0.5rem; right: 0.9rem;
-      background: none;
+      min-width: 320px;
+      max-width: 480px;
+      height: 600px;
       border: none;
-      font-size: 1.7rem;
-      color: var(--main);
-      cursor: pointer;
-      z-index: 10;
+      display: block;
     }
-    @media (max-width: 500px) {
-      header h1 { font-size: 1.45rem; }
-      main { padding-bottom: 5.1rem; }
-      .service h2 { font-size: 1.1rem; }
-      .about h2 { font-size: 1.05rem; }
-      .fab { width: 52px; height: 52px; font-size: 1.7rem; bottom: 4.1rem; }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.5rem; }
+      .container { padding: 0 0.3rem; }
+      .section h2 { font-size: 1.1rem; }
+      .calendly-inline-widget { height: 520px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Rainao Lawn Mowing</h1>
-    <p>Lawn Mowing & Edging, Done Right.</p>
-    <svg class="hero-svg" viewBox="0 0 340 100">
+  <div class="hero">
+    <svg class="hero-graphic" viewBox="0 0 340 100">
       <ellipse cx="170" cy="90" rx="150" ry="15" fill="#a5d6a7"/>
       <rect x="60" y="60" width="220" height="30" rx="12" fill="#43a047"/>
       <rect x="170" y="45" width="60" height="22" rx="6" fill="#616161"/>
@@ -193,62 +125,32 @@
       <rect x="100" y="72" width="8" height="14" rx="4" fill="#388e3c"/>
       <rect x="120" y="68" width="7" height="16" rx="3" fill="#388e3c"/>
     </svg>
-  </header>
-  <main>
-    <div class="service" id="services">
+    <h1>Rainao Lawn Mowing</h1>
+    <p>Fresh Cuts. Clean Edges. <em>Your</em> Lawn, Perfected.</p>
+    <a href="#appointment" class="cta-btn">Book Your Appointment Below</a>
+  </div>
+  <div class="container">
+    <div class="section">
       <h2>🌱 Lawn Mowing</h2>
       <p>Consistent, sharp, and eco-friendly mowing for a lush, healthy yard. We use quiet, modern equipment for a perfect finish every time.</p>
     </div>
-    <div class="service">
+    <div class="section">
       <h2>✂️ Edging</h2>
       <p>Clean, crisp edges along sidewalks, driveways, and beds. Your lawn, outlined to perfection.</p>
     </div>
-    <div class="service">
+    <div class="section">
       <h2>🧹 Cleanup</h2>
       <p>We clear away all clippings and debris for a spotless, polished result after every visit.</p>
     </div>
-    <div class="about" id="about">
+    <div class="section" id="about">
       <h2>About Rainao</h2>
       <p>
         Local, family-owned, and obsessed with detail. We treat every yard like our own—on time, every time.
       </p>
     </div>
-  </main>
- <!-- Calendly inline widget begin -->
+   <!-- Calendly inline widget begin -->
 <div class="calendly-inline-widget" data-url="https://calendly.com/pantojaefrain1127/lawn-moving-appoinment?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Calendly inline widget end -->
-  <!-- Calendly Modal -->
-  <div id="calendly-modal">
-    <div id="calendly-content">
-      <div 
-        class="calendly-inline-widget"
-        data-url="https://calendly.com/your-calendly-link/lawn-mowing"
-        style="min-width:320px;height:630px;">
-      </div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    </div>
-  </div>
-  <script>
-    // Calendly modal logic
-    function openCalendly() {
-      document.getElementById('calendly-modal').style.display = 'flex';
-    }
-    document.getElementById('calendly-close').onclick = function() {
-      document.getElementById('calendly-modal').style.display = 'none';
-    };
-    window.onclick = function(event) {
-      if (event.target === document.getElementById('calendly-modal')) {
-        document.getElementById('calendly-modal').style.display = 'none';
-      }
-    };
-    // Bottom nav active state
-    document.querySelectorAll('.bottom-nav a').forEach(link => {
-      link.addEventListener('click', function() {
-        document.querySelectorAll('.bottom-nav a').forEach(l => l.classList.remove('active'));
-        if(this.hash) this.classList.add('active');
-      });
-    });
-  </script>
 </body>
 </html>
