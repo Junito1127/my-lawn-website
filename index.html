@@ -66,6 +66,11 @@
 
         .mobile-nav-links {
             display: flex; /* Always flex for desktop */
+            /* Initial state for mobile menu when closed */
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition */
         }
 
         @media (max-width: 767px) { /* Styles for screens smaller than md (768px) */
@@ -73,7 +78,8 @@
                 display: flex; /* Show hamburger on mobile */
             }
             .mobile-nav-links {
-                display: none; /* Hide desktop nav on mobile by default */
+                /* Override desktop display for mobile */
+                display: flex; /* Keep flex for column layout */
                 flex-direction: column;
                 position: absolute;
                 top: 64px; /* Adjust based on header height */
@@ -82,11 +88,14 @@
                 background-color: white;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.1);
                 z-index: 1000;
-                padding: 1rem 0;
+                padding: 0; /* Remove padding from here, apply to active state */
                 border-radius: 0 0 0.5rem 0.5rem;
+                /* Transition properties are already on the base class */
             }
             .mobile-nav-links.active {
-                display: flex; /* Show mobile nav when active */
+                max-height: 500px; /* A value large enough to contain all menu items */
+                opacity: 1;
+                padding: 1rem 0; /* Apply padding only when active */
             }
             .mobile-nav-links li {
                 width: 100%;
