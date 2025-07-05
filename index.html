@@ -11,6 +11,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
         .hero-background {
             /* Updated to a lawn mower related placeholder image */
@@ -52,8 +53,8 @@
             display: none; /* Hidden by default, shown on small screens */
             cursor: pointer;
             flex-direction: column;
-            justify-content: center; /* Changed from space-between to center */
-            gap: 4px; /* Added gap for slight spacing between dashes */
+            justify-content: center;
+            gap: 4px;
             width: 30px;
             height: 20px;
         }
@@ -97,6 +98,8 @@
                 max-height: 500px; /* A value large enough to contain all menu items */
                 opacity: 1;
                 padding: 1rem 0; /* Apply padding only when active */
+                /* Ensure items are centered horizontally within the expanded menu */
+                align-items: center; /* Added for horizontal centering of list items */
             }
             .mobile-nav-links li {
                 width: 100%;
