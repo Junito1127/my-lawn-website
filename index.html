@@ -1,161 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainao Lawn Moving - Beautiful Lawns, Easy Appointments</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-            overflow-x: hidden;
-        }
-        .hero-background {
-            background-image: url('https://placehold.co/1920x800/10b981/ffffff?text=Modern+Lawn+Mower');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #22c55e;
-            margin: 10px auto 0;
-            border-radius: 9999px;
-        }
-        .form-input {
-            @apply w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200;
-        }
-        .btn-primary {
-            @apply bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 ease-in-out shadow-md hover:shadow-lg;
-        }
-        .card {
-            @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1;
-        }
-        .calendly-inline-widget {
-            min-width: 320px;
-            height: 700px;
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .mobile-menu-button span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: #22c55e;
-            border-radius: 2px;
-        }
-        @media (max-width: 767px) {
-            .mobile-menu-button {
-                display: flex !important;
-            }
-            .mobile-nav-links {
-                flex-direction: column;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                background: white;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-                z-index: 1000;
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                padding: 0;
-                border-radius: 0 0 1rem 1rem;
-                margin-top: 56px;
-            }
-            .mobile-nav-links.active {
-                max-height: 400px;
-                opacity: 1;
-                padding: 1rem 0;
-                overflow-y: auto;
-            }
-            .mobile-nav-links ul {
-                flex-direction: column;
-                width: 100%;
-            }
-            .mobile-nav-links li {
-                width: 100%;
-                text-align: center;
-                padding: 0.75rem 0;
-            }
-            .mobile-nav-links li a {
-                display: block;
-                padding: 0.5rem 1rem;
-            }
-            header {
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rainao Lawn Moving - Beautiful Lawns, Easy Appointments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #f8fafc; overflow-x: hidden; }
+    .mobile-menu-button span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #22c55e;
+      border-radius: 2px;
+    }
+    @media (max-width: 767px) {
+      .mobile-nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 100vw;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        z-index: 1000;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0;
+        border-radius: 0 0 1rem 1rem;
+        transition: max-height 0.3s, opacity 0.3s, padding 0.3s;
+      }
+      .mobile-nav-links.active {
+        max-height: 400px;
+        opacity: 1;
+        padding: 1rem 0;
+        overflow-y: auto;
+      }
+      .mobile-nav-links ul {
+        flex-direction: column;
+        width: 100%;
+      }
+      .mobile-nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 0;
+      }
+      .mobile-nav-links li a {
+        display: block;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
 </head>
 <body class="text-gray-800">
 
-    <!-- Header -->
-    <header class="bg-white shadow-sm py-3 w-full">
-        <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-4">
-            <a href="#" class="text-3xl font-bold text-green-700 m-0 p-0 leading-none">Rainao Lawn Moving</a>
-            <!-- Hamburger menu button for mobile -->
-            <button id="mobile-menu-button" class="mobile-menu-button md:hidden flex flex-col justify-center items-center w-8 h-8 p-0 m-0" aria-label="Open main menu" style="display:none;">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav id="main-nav" class="mobile-nav-links">
-                <ul class="flex space-x-6 md:flex">
-                    <li><a href="#home" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Home</a></li>
-                    <li><a href="#services" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Services</a></li>
-                    <li><a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Testimonials</a></li>
-                    <li><a href="#appointment" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Appointment</a></li>
-                    <li><a href="#contact" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="bg-white shadow-sm py-3 w-full">
+    <div class="flex items-center justify-between w-full max-w-7xl mx-auto px-4">
+      <a href="#" class="text-3xl font-bold text-green-700 m-0 p-0 leading-none">Rainao Lawn Moving</a>
+      <!-- Hamburger menu button for mobile -->
+      <button id="mobile-menu-button" class="mobile-menu-button md:hidden flex flex-col justify-center items-center w-8 h-8 p-0 m-0" aria-label="Open main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="main-nav" class="mobile-nav-links flex items-center">
+        <ul class="flex space-x-6 md:flex">
+          <li><a href="#home" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Home</a></li>
+          <li><a href="#services" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Services</a></li>
+          <li><a href="#testimonials" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Testimonials</a></li>
+          <li><a href="#appointment" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Appointment</a></li>
+          <li><a href="#contact" class="text-gray-600 hover:text-green-600 font-medium transition duration-200">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- ... rest of your page ... -->
+  <!-- Example content below (replace with your actual content) -->
+  <section id="home" class="h-32 flex items-center justify-center">Home Section</section>
+  <section id="services" class="h-32 flex items-center justify-center">Services Section</section>
+  <section id="testimonials" class="h-32 flex items-center justify-center">Testimonials Section</section>
+  <section id="appointment" class="h-32 flex items-center justify-center">Appointment Section</section>
+  <section id="contact" class="h-32 flex items-center justify-center">Contact Section</section>
 
-    <script>
-        // Show hamburger on mobile
-        function handleResize() {
-            const btn = document.getElementById('mobile-menu-button');
-            if(window.innerWidth < 768) {
-                btn.style.display = 'flex';
-            } else {
-                btn.style.display = 'none';
-            }
-        }
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('DOMContentLoaded', handleResize);
+  <script>
+    // Hamburger menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      document.getElementById('main-nav').classList.toggle('active');
+    });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const mobileNav = document.getElementById('main-nav');
-                if (mobileNav.classList.contains('active')) {
-                    mobileNav.classList.remove('active');
-                }
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Mobile menu toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mainNav = document.getElementById('main-nav');
-        mobileMenuButton.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-        });
-    </script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('main-nav').classList.remove('active');
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
