@@ -70,7 +70,7 @@
             display: flex; /* Always flex for desktop */
             /* Initial state for mobile menu when closed */
             max-height: 0;
-            overflow: hidden;
+            overflow: hidden; /* Hide overflow when closed */
             opacity: 0;
             transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out; /* Smooth transition */
         }
@@ -100,6 +100,7 @@
                 padding: 1rem 0; /* Apply padding only when active */
                 /* Ensure items are centered horizontally within the expanded menu */
                 align-items: center; /* Added for horizontal centering of list items */
+                overflow-y: auto; /* Allow vertical scrolling when menu is active */
             }
             .mobile-nav-links li {
                 width: 100%;
